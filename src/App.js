@@ -9,13 +9,23 @@ function App() {
   
   function addUser(user) {
   return setUsers([...users,user])
-}
+  }
+  
+  function DeleteUser(userid) {
+    setUsers((prev) => {
+      return prev.filter((user) => {
+       return userid !== user.id
+      })
+  
+    })
+    console.log(users);
+ }
 
   return (
     <div className="main">
       <h1 className="text-center mb-3"> displaying userList in React</h1>
       <UsersForm addUser={addUser} />
-      <UserList data={users}/>
+      <UserList data={users} ondelete={ DeleteUser}/>
     </div>
   );
 }

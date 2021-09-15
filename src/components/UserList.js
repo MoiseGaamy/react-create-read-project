@@ -1,8 +1,11 @@
 import React from "react";
+import User from "./User";
 
 
 function UserList(props) {
     const users = props.data
+
+    
     return (
         <div className="list">
           <div>
@@ -16,11 +19,7 @@ function UserList(props) {
                                 </thead>
                     <tbody>
                         {users.map((user) => {
-                            return <tr>
-                            <td>{user.name}</td>
-                            <td>{user.gen}</td>
-                            <td>{user.email}</td>
-                        </tr>
+                            return <User id={user.id} user={user} onDelete={props.ondelete} />
                         })}
                                     
                                 </tbody>
