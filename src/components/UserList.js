@@ -9,7 +9,7 @@ function UserList(props) {
     return (
         <div className="list">
           <div>
-                           <table class="table table-dark table-striped">
+                           <table className="table table-dark table-striped">
                                 <thead>
                                     <tr>
                                     <th scope="col">Name</th>
@@ -19,7 +19,7 @@ function UserList(props) {
                                 </thead>
                     <tbody>
                         {users.map((user) => {
-                            return <User id={user.id} user={user} onDelete={props.ondelete} />
+                            return <User id={user.id} key={user.id} user={user} onDelete={props.ondelete} onEdit={props.onEdit}/>
                         })}
                                     
                                 </tbody>

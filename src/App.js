@@ -18,14 +18,20 @@ function App() {
       })
   
     })
-    console.log(users);
- }
+  }
+  
+  function editUser(edited) {
+    setUsers((prev) => {
+      return prev.map((user) => user.id === edited.id ? edited : user
+      )
+    })
+  }
 
   return (
     <div className="main">
       <h1 className="text-center mb-3"> displaying userList in React</h1>
       <UsersForm addUser={addUser} />
-      <UserList data={users} ondelete={ DeleteUser}/>
+      <UserList data={users} ondelete={DeleteUser} onEdit={editUser}/>
     </div>
   );
 }
