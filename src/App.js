@@ -2,14 +2,16 @@ import React,{useState} from "react"
 import './App.css';
 import UserList from "./components/UserList";
 import UsersForm from "./components/UsersForm";
+import { connect } from "react-redux";
+import addUser from "./actions/userActions";
 
-function App() {
+function App(props) {
 
   const [users, setUsers] = useState([])
   
-  // function addUser(user) {
-  //   setUsers([...users, user]);
-  // }
+  function addUser(user) {
+    props.addNewUser(user)
+  }
   
   function DeleteUser(userid) {
     setUsers((prev) => {
@@ -30,10 +32,12 @@ function App() {
   return (
     <div className="main">
       <h1 className="text-center mb-3"> displaying userList in React</h1>
-      <UsersForm />
-      <UserList  ondelete={DeleteUser} onEdit={editUser}/>
+      <UsersForm addUser={addUser}/>
+      <UserList users={users} ondelete={DeleteUser} onEdit={editUser}/>
     </div>
   );
 }
-
-export default App;
+const mapDispatchToProps = {
+  addNewUser: addUser,
+};
+export default connect(null,mapDispatchToProps)(App);
