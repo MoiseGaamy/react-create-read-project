@@ -8,7 +8,7 @@ function App() {
   const [users, setUsers] = useState([])
   
   function addUser(user) {
-  return setUsers([...users,user])
+    setUsers([...users, user]);
   }
   
   function DeleteUser(userid) {
@@ -30,8 +30,8 @@ function App() {
   return (
     <div className="main">
       <h1 className="text-center mb-3"> displaying userList in React</h1>
-      <UsersForm addUser={addUser} />
-      <UserList data={users} ondelete={DeleteUser} onEdit={editUser}/>
+      <UsersForm />
+      <UserList  ondelete={DeleteUser} onEdit={editUser}/>
     </div>
   );
 }
