@@ -3,6 +3,7 @@ import React, { useState } from "react";
 
 
 
+
 function User(props) {
     const [fullInfo, setFullInfo] = useState({
         name: props.user.name,
@@ -11,7 +12,7 @@ function User(props) {
         id: props.user.id
     })
     const [showEdit, setShowEdit] = useState(false);
-    const UnikUser = props.user
+    const UnikUser = props.user;
     
     function handleClick(e) {
         e.preventDefault()
@@ -59,5 +60,6 @@ function User(props) {
     </>
     )
 }
+
 
 export default User;
