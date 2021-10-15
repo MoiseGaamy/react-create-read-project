@@ -7,9 +7,9 @@ function App() {
 
   const [users, setUsers] = useState([])
   
-  function addUser(user) {
-    setUsers([...users, user]);
-  }
+  // function addUser(user) {
+  //   setUsers([...users, user]);
+  // }
   
   function DeleteUser(userid) {
     setUsers((prev) => {
