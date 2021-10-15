@@ -1,11 +1,9 @@
 import React from "react";
 import User from "./User";
+import { connect } from 'react-redux';
 
 
 function UserList(props) {
-    const users = props.data
-
-    
     return (
         <div className="list">
           <div>
@@ -18,7 +16,7 @@ function UserList(props) {
                                     </tr>
                                 </thead>
                     <tbody>
-                        {users.map((user) => {
+                        {props.users.map((user) => {
                             return <User id={user.id} key={user.id} user={user} onDelete={props.ondelete} onEdit={props.onEdit}/>
                         })}
                                     
@@ -31,5 +29,10 @@ function UserList(props) {
         </div>
     )
 }
+const mapStateToProps = (state)=> {
+    return {
+        users: state.users,
+    };
+}
 
-export default UserList;
+export default connect(mapStateToProps) (UserList);
