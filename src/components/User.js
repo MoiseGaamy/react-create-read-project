@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-
-
+import { editUser } from "../actions/userActions.jsx";
+import { connect } from "react-redux"
+import { deleteUser } from "../actions/userActions.jsx";
 
 
 
@@ -16,7 +17,7 @@ function User(props) {
     
     function handleClick(e) {
         e.preventDefault()
-        props.onDelete(UnikUser.id)
+        props.deleteUser(UnikUser.id)
         
     } 
     function handleChange(e) {
@@ -30,7 +31,7 @@ function User(props) {
     }
     function handleEdit(e) {
         e.preventDefault();
-        props.onEdit(fullInfo)  
+        props.editUser(props.user.id,fullInfo)  
         setShowEdit(!showEdit)
     }
     return (
@@ -60,6 +61,10 @@ function User(props) {
     </>
     )
 }
+const mapDispatchToProps = {
+    editUser,
+    deleteUser,
+}
 
 
-export default User;
+export default connect(null,mapDispatchToProps)(User);
