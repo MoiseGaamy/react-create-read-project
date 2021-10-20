@@ -17,7 +17,7 @@ function UserList(props) {
                                 </thead>
                     <tbody>
                         {props.users.map((user) => {
-                            return <User id={user.id} key={user.id} user={user} onDelete={props.ondelete} onEdit={props.onEdit}/>
+                            return <User id={user.id} key={user.id} user={user}/>
                         })}
                                     
                                 </tbody>
