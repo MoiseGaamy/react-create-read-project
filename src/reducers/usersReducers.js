@@ -18,7 +18,9 @@ const usersReducers = (state = initialState, action) => {
             const deletedUser = state.users.filter((user) => {
                 return user.id !== action.payload
             })
-            return {...state, users: deletedUser}
+            return { ...state, users: deletedUser };
+        case 'ALL_USERS':
+            return { ...state, users: action.payload };
         default:
             return state
     }
