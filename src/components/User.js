@@ -54,7 +54,9 @@ function User(props) {
         <td>{UnikUser.name}</td>
         <td>{UnikUser.gen}</td>
         <td>{UnikUser.email}</td>
-        <button type="button" className="btn btn-danger" onClick={handleClick}>Delete</button>
+        <td>{new Date(UnikUser.timestamp.seconds * 1000).toLocaleDateString("en-US")}</td>
+        <td>{new Date(UnikUser.timestamp.seconds * 1000).toLocaleTimeString("en-US")}</td>
+        <button type="button" className="btn custom btn-danger" onClick={handleClick}>Delete</button>
         <button type="button" className="btn btn-success" onClick={()=>{setShowEdit(!showEdit)}}>Edit</button>
      </tr>)
             }
