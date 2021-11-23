@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { v4 as uuid } from "uuid";
 import { connect } from "react-redux";
 import { addUser } from "../actions/userActions";
+import { logOut } from "../actions/authAction.js";
 
 
 function UsersForm(props) {
@@ -41,12 +42,14 @@ function UsersForm(props) {
             <div className="col-auto">
             <input type="text" className="form-control" name="gen" value={gen} onChange={(e)=>setGen(e.target.value)} placeholder="Enter your Gender" />
             </div>
-            <button className="btn btn-success" type="submit">Submit</button> 
+            <button className="btn btn-success" type="submit">Submit</button>
+            <button onClick={props.logout} className="btn btn-secondary ml-2">LogOut</button>
         </form>
     )
 }
 const mapDispatchToProps = {
     addNewUser: addUser,
+    logout : logOut
   };
 
 export default connect(null,mapDispatchToProps)(UsersForm);
