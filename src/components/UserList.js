@@ -32,9 +32,10 @@ function UserList(props) {
         </div>
     )
 }
-const mapStateToProps = (state)=> {
+const mapStateToProps = (state) => {
+    console.log(state);
     return {
-        users: state.users,
+        users: state.userState.users,
     };
 }
 
