@@ -1,25 +1,21 @@
-import React, { useEffect } from "react"
+import React from "react"
 import './App.css';
-import UserList from "./components/UserList";
-import UsersForm from "./components/UsersForm";
-import { connect } from "react-redux";
-import { getAllUsers } from "./actions/userActions.jsx";
+import { BrowserRouter, Route } from "react-router-dom";
+import Home from "./pages/Home.js";
+import Login from "./pages/Login.js";
+import Register from "./pages/Register.js";
+import ProtectRoute from "./components/ProtectRoute.js";
 
-function App(props) {
+function App() {
 
-  useEffect(() => {
-    props.getAllUsers();
- },[props])
   return (
-    <div className="main">
-      <h1 className="text-center mb-3"> displaying userList in React</h1>
-      <UsersForm/>
-      <UserList/>
-    </div>
+    <BrowserRouter>
+      <ProtectRoute exact path="/" component={Home}/>
+      <Route  path="/login" component={Login}/>
+      <Route  path="/register" component={Register}/>
+   </BrowserRouter>
   );
 }
-const mapDispatchToProps = {
-  getAllUsers ,
-}
 
-export default connect(null,mapDispatchToProps) (App);
+
+export default App
