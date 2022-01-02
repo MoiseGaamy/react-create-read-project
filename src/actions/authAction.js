@@ -27,9 +27,8 @@ export const login = (email,password) => {
 export const loginWithGoogle = () => {
     return (dispatch, state, { getFirebase }) => {
         let firebase = getFirebase();
-        const provider = new firebase.auth.GoogleAuthProvider();
-            firebase
-            .auth()
+        let provider = new firebase.auth.GoogleAuthProvider();
+         firebase.auth()
             .signInWithPopup(provider)
             .then(() => {
             console.log("registered with google");
