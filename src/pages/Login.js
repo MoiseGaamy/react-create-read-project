@@ -27,7 +27,7 @@ const Login = (props) => {
                                 <input type="password" name="password" placeholder="password" />
                             </div>
                             <input type="submit" className="bbtn solid" value="Submit" />
-                            <button onClick={props.google} className="btn btn-secondary google">Sign-In with Google</button>
+                            <button onClick={props.loginWithGoogle} className="btn btn-secondary google">Sign-In with Google</button>
                         </form>
                     </div>
                 </div>
@@ -45,7 +45,7 @@ const mSTP = (state) => {
 }
 const mapDispatchToProps = {
     login,
-    google: loginWithGoogle
+ loginWithGoogle
 }
 
 export default connect(mSTP,mapDispatchToProps)(Login)
